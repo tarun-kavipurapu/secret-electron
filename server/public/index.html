@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Download</title>
+  </head>
+  <body>
+    <h1>Available Files for Download</h1>
+    <ul id="fileList"></ul>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("/files")
+          .then((response) => response.json())
+          .then((files) => {
+            const fileList = document.getElementById("fileList");
+            files.forEach((file) => {
+              const listItem = document.createElement("li");
+              const link = document.createElement("a");
+              link.href = `/${file}`;
+              link.textContent = file;
+              link.download = file;
+              listItem.appendChild(link);
+              fileList.appendChild(listItem);
+            });
+          })
+          .catch((error) => console.error("Error fetching file list:", error));
+      });
+    </script>
+  </body>
+</html>
