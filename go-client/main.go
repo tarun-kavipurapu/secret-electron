@@ -26,7 +26,7 @@ func add() {
 
 func takeScreenshot() {
 
-	bitmap := robotgo.CaptureScreen()
+	bitmap := robotgo.CaptureScreen(0)
 	defer robotgo.FreeBitmap(bitmap)
 
 	img := robotgo.ToImage(bitmap)
