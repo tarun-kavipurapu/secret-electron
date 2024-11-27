@@ -6,6 +6,7 @@
   <body>
     <h1>Available Files for Download</h1>
     <ul id="fileList"></ul>
+    <button onclick="downloadAll()">Download All Images</button>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -25,6 +26,10 @@
           })
           .catch((error) => console.error("Error fetching file list:", error));
       });
+
+      function downloadAll() {
+        window.location.href = "/download-all";
+      }
     </script>
   </body>
 </html>

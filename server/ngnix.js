@@ -6,4 +6,3 @@ const fn = async () => {
 };
 
 fn();
-``;
